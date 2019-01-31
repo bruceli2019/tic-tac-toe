@@ -1,0 +1,34 @@
+<h1>
+  Edit bio #<%= @bio.id %>
+</h1>
+
+<hr>
+
+<form action="/update_bio/<%= @bio.id %>" method="post">
+
+  <div class="form-group">
+    <label for="description">
+      Description
+    </label>
+
+    <textarea id="description" name="description" class="form-control" rows="3"><%= @bio.description %></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @bio.user_id %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update bio
+  </button>
+</form>
+
+<hr>
+
+<a href="/bios">
+  Go back
+</a>

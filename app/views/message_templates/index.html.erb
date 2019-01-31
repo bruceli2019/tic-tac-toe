@@ -1,0 +1,74 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      All messages
+    </h1>
+
+    <a href="/messages/new" class="btn btn-block btn-outline-secondary">
+      Add a new message
+    </a>
+  </div>
+</div>
+
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Match
+        </th>
+
+        <th>
+          Chat
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @messages.each do |message| %>
+      <tr>
+        <td>
+          <%= message.id %>
+        </td>
+
+        <td>
+          <%= message.match_id %>
+        </td>
+
+        <td>
+          <%= message.chat %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(message.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(message.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/messages/<%= message.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

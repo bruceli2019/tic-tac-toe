@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @bio.present? %>
+  <% if @bio.errors.any? %>
+    <% @bio.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new bio
+</h1>
+
+
+<hr>
+
+<form action="/create_bio" method="post">
+
+  <div class="form-group">
+    <label for="description">
+      Description
+    </label>
+
+    <textarea id="description" name="description" class="form-control" rows="3"><%= @bio.description %></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @bio.user_id %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create bio
+  </button>
+</form>
+
+<hr>
+
+<a href="/bios">
+  Go back
+</a>

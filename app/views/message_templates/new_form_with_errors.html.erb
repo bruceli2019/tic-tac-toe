@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @message.present? %>
+  <% if @message.errors.any? %>
+    <% @message.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new message
+</h1>
+
+
+<hr>
+
+<form action="/create_message" method="post">
+
+  <div class="form-group">
+    <label for="match_id">
+      Match
+    </label>
+
+    <input type="text" id="match_id" name="match_id" class="form-control" value="<%= @message.match_id %>">
+  </div>
+
+  <div class="form-group">
+    <label for="chat">
+      Chat
+    </label>
+
+    <textarea id="chat" name="chat" class="form-control" rows="3"><%= @message.chat %></textarea>
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create message
+  </button>
+</form>
+
+<hr>
+
+<a href="/messages">
+  Go back
+</a>

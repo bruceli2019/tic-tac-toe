@@ -1,0 +1,74 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      All matches
+    </h1>
+
+    <a href="/matches/new" class="btn btn-block btn-outline-secondary">
+      Add a new match
+    </a>
+  </div>
+</div>
+
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          My
+        </th>
+
+        <th>
+          Other user
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @matches.each do |match| %>
+      <tr>
+        <td>
+          <%= match.id %>
+        </td>
+
+        <td>
+          <%= match.my_id %>
+        </td>
+
+        <td>
+          <%= match.other_user_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(match.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(match.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/matches/<%= match.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

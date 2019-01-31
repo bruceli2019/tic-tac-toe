@@ -23,9 +23,53 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    
+    <style>
+      /* Necessary b/c using navbar-fixed-top */
+      body {
+        padding-top: 60px;
+      }
+    </style>
+    
   </head>
 
   <body>
+    
+    <nav class = "navbar fixed-top navbar-expand-lg navbar-light bg-light">
+      <div class = "container">
+        <a class = "navbar-brand" href = "/">Rumblr</a>
+      
+        <div class = "collapse navbar-collapse" id = "navbarSupportedContent">
+          <ul class = "navbar-nav mr-auto">
+            <li class = "nav-item">
+              <a class = "nav-link" href = "/">Profile</a>
+            </li>
+            <li class = "nav-item">
+              <a class = "nav-link" href = "/">Matches</a>
+            </li>
+            <li class = "nav-item">
+              <a class = "nav-link" href = "/">Messages</a>
+            </li>
+          </ul>
+        </div>
+        
+        <ul class = "navbar-nav ml-auto">
+          <% if current_user.present? %>
+            <a class = "nav-link" href = "/">
+              <%= current_user.username %>
+            </a>
+          <% else %>
+            <a class = "nav-link" href = "/">
+              Sign In
+            </a>
+          <% end %>
+          
+        </ul>
+        
+      </div>
+      
+    </nav>
+    
     <%= yield %>
 
     <%= dev_tools if Rails.env.development? %>

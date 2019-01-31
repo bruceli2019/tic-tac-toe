@@ -1,0 +1,34 @@
+<h1>
+  Edit message #<%= @message.id %>
+</h1>
+
+<hr>
+
+<form action="/update_message/<%= @message.id %>" method="post">
+
+  <div class="form-group">
+    <label for="match_id">
+      Match
+    </label>
+
+    <input type="text" id="match_id" name="match_id" class="form-control" value="<%= @message.match_id %>">
+  </div>
+
+  <div class="form-group">
+    <label for="chat">
+      Chat
+    </label>
+
+    <textarea id="chat" name="chat" class="form-control" rows="3"><%= @message.chat %></textarea>
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update message
+  </button>
+</form>
+
+<hr>
+
+<a href="/messages">
+  Go back
+</a>

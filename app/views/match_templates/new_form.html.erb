@@ -1,0 +1,35 @@
+<h1>
+  Add a new match
+</h1>
+
+
+<hr>
+
+<form action="/create_match" method="post">
+
+  <div class="form-group">
+    <label for="my_id">
+      My
+    </label>
+
+    <input type="text" id="my_id" name="my_id" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="other_user_id">
+      Other user
+    </label>
+
+    <input type="text" id="other_user_id" name="other_user_id" class="form-control">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create match
+  </button>
+</form>
+
+<hr>
+
+<a href="/matches">
+  Go back
+</a>
